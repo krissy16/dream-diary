@@ -1,0 +1,28 @@
+
+.form-group{
+    display: block;
+    width: 80%;
+    margin: 0 auto 10px;
+    text-align: left;
+}
+.form-group *{
+  box-sizing: border-box;
+}
+.form-group > label{
+  display: inline-block;
+  width: 20%;
+}
+.form-group > input{
+  display: inline-block;
+  width: 80%;
+}
+.form-group > textarea{
+  width: 100%;
+  resize: none;
+}
+#content{
+  height: 20em;
+}
+#notes{
+  height: 5em;
+}

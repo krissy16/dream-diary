@@ -1,0 +1,9 @@
+.title{
+    text-align: center;
+  }
+  .edit{
+    position: absolute;
+    height: 20px;
+    top: 36px;
+    right: 10px;
+  }

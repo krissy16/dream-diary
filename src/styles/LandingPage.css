@@ -1,0 +1,46 @@
+
+  .closed-book{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 600px;
+    text-align: center;
+    margin-top: 50px;
+    background-color: saddlebrown;
+  }
+  .book.title{
+    padding-top: 50px;
+  }
+  .strap{
+    background-color: rgb(119, 60, 18);
+    position: absolute;
+    width: 50%;
+    height: 50px;
+    right: 0;
+    top: 40%;
+    display: flex;
+    align-items: center;
+  }
+  .lock{
+    background-color: silver;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .circle{
+    height: 50%;
+    background-color: black;
+    border-radius: 100%;
+    width: 50%;
+  }
+  .rectangle{
+    height: 30%;
+    width: 30%;
+    background-color: black;
+    position: relative;
+    top: -5px;
+  }
