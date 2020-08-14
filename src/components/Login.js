@@ -18,7 +18,7 @@ function Login(props){
                     <input id="email" type="email" />
                 </span>
                 <span className="input-group">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Password: </label>
                     <input id="password" type = "password" />
                 </span>
                 <button type="submit" onClick={authorize}>Log In</button>

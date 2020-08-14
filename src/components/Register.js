@@ -18,11 +18,11 @@ function Register(props){
                     <input id="email" type="email" />
                 </span>
                 <span className="input-group">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Password: </label>
                     <input id="password" type = "password" />
                 </span>
                 <span className="input-group">
-                    <label htmlFor="confirm-password">Confirm Password</label>
+                    <label htmlFor="confirm-password">Confirm Password: </label>
                     <input id="confirm-password" type = "password" />
                 </span>
                 <button type="submit" onClick={authorize}>Register</button>
