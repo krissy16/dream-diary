@@ -11,7 +11,7 @@ class EntryForm extends React.Component{
     }
     handleSubmit = e =>{
         e.preventDefault();
-        let notes = this.splitNotes(this.state.notes)
+        let notes = (typeof this.state.notes === 'string') ? this.splitNotes(this.state.notes) : this.state.notes
         let data = {
             title: this.state.title,
             date: this.state.date,
@@ -52,7 +52,7 @@ class EntryForm extends React.Component{
         this.setState(newState)
     }
     splitNotes(notesString){
-        if(notesString === '' || notesString.trim() === '') return []
+        if(!notesString || notesString.trim() === '') return []
         let notesArray = notesString.split(',').map(note => note.trim())
         return notesArray
     }

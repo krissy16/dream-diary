@@ -56,6 +56,15 @@ class Home extends React.Component{
     componentDidMount(){
         let width = window.innerWidth;
         if (width < 700) {this.setState({ foldBook: true})}
+        window.addEventListener('resize', this.updateSize)
+    }
+    componentWillUnmount(){
+        window.removeEventListener('resize', this.updateSize)
+    }
+    updateSize = () => {
+        let width = window.innerWidth;
+        if (width < 700) {this.setState({ foldBook: true})}
+        else {this.setState({ foldBook: false})}
     }
     render(){
         let rightPageData =  sampleData[this.state.currentPage]
