@@ -8,7 +8,7 @@ function LandingPage(){
           <h1 className="book title">Dream Diary</h1>
           <p className="instructions">Record all your dreams in one place! Just click the lock to get started</p>
           <div className="strap">
-            <Link className="lock" to="/register">
+            <Link className="lock" to="/login">
               <div className="circle"></div><div className="rectangle"></div>
             </Link>
           </div>

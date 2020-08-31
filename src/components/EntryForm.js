@@ -1,32 +1,50 @@
 import React from 'react'
+import DreamApiService from '../services/dreams-api-service'
+import DreamContext from '../DreamContext'
+
 import '../styles/EntryForm.css'
 
 class EntryForm extends React.Component{
     state={
         edit: false,
         title: '',
-        date: '',
+        date_created: new Date().toISOString().substring(0, 10),
         content: '',
         notes: ''
     }
+
+    static contextType = DreamContext
+
     handleSubmit = e =>{
         e.preventDefault();
-        let notes = (typeof this.state.notes === 'string') ? this.splitNotes(this.state.notes) : this.state.notes
         let data = {
             title: this.state.title,
-            date: this.state.date,
+            date_created: this.state.date_created,
             content: this.state.content,
-            notes: notes
+            notes: this.state.notes
         }
-        //add to database
-        console.log(data)
+        
+        //if we are editing existing post
         if(this.state.edit){
-            this.setState({ edit: false })
-            this.props.toggleEdit()
+            DreamApiService.editDream(this.props.data.id, data)
+            .then( () => {
+                this.context.changeDream(data)
+                this.setState({ edit: false })
+                this.props.toggleEdit()
+            })
+            .catch(error => console.log(error))
         }
-        else 
+        //if creating a new post
+        else {
+            DreamApiService.postDream(data)
+                .then(console.log('Successfully added'))
+                .catch(error => console.log(error.message))
+        }
             this.props.history.push('/home')
+            window.location.reload();
     }
+
+    //redirect if cancelling
     handleCancel = e =>{
         e.preventDefault();
         if(this.state.edit){
@@ -36,30 +54,39 @@ class EntryForm extends React.Component{
         else 
             this.props.history.push('/home')
     }
+
+    //to delete existing dream
     handleDelete = e => {
         e.preventDefault();
-        if(this.state.edit){
-            this.setState({ edit: false })
-            this.props.toggleEdit()
+        
+        const deletedDream = {
+            title: this.props.title,
+            date_created: this.props.date_created,
+            content: this.props.content,
+            notes: this.props.notes,
+            archived: true
         }
-        else 
-            this.props.history.push('/home')
+        DreamApiService.editDream(this.props.data.id, deletedDream)
+            .then( () => {
+                this.context.changeDream(deletedDream)
+                this.setState({ edit: false })
+                this.props.toggleEdit()
+                this.props.history.push('/home')
+                window.location.reload();
+            })
+            .catch(error => console.log(error))
     }
     handleChange = e => {
         let newState = {}
         newState[e.target.id] = e.target.value;
-        console.log(newState)
         this.setState(newState)
     }
-    splitNotes(notesString){
-        if(!notesString || notesString.trim() === '') return []
-        let notesArray = notesString.split(',').map(note => note.trim())
-        return notesArray
-    }
+    
     componentDidMount(){
         if(this.props.data){
             this.setState({ edit: true})
             this.setState(this.props.data)
+            this.setState({ date_created: this.props.data.date_created.substring(0, 10) })
         }
     }
     render(){
@@ -71,8 +98,8 @@ class EntryForm extends React.Component{
                         <input id="title" type="text" value={this.state.title} onChange={this.handleChange}/>
                     </span>
                     <span className="form-group">
-                        <label htmlFor="date">Date:</label>
-                        <input id="date" type="date" value={this.state.date} onChange={this.handleChange}/>
+                        <label htmlFor="date_created">Date:</label>
+                        <input id="date_created" type="date" value={this.state.date_created} onChange={this.handleChange}/>
                     </span>
                     <span className="form-group">
                         <label htmlFor="content">Dream: </label>
