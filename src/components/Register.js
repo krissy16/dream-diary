@@ -37,6 +37,7 @@ class Register extends React.Component{
     }
 
     onRegistrationSuccess = () => {
+        console.log('redirecting to login....')
         this.props.history.push('/login')
     }
 
