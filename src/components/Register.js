@@ -29,7 +29,7 @@ class Register extends React.Component{
             email.value = ''
             password.value = ''
             confirm.value = ''
-            this.props.onRegistrationSuccess()
+            this.onRegistrationSuccess()
         })
         .catch(res => {
             this.setState({ error: res.error })
