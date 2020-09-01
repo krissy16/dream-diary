@@ -28,6 +28,7 @@ class Register extends React.Component{
         .then(user => {
             email.value = ''
             password.value = ''
+            confirm.value = ''
             this.props.onRegistrationSuccess()
         })
         .catch(res => {
@@ -35,7 +36,7 @@ class Register extends React.Component{
         })
     }
 
-    onRegistrationSuccess(){
+    onRegistrationSuccess = () => {
         this.props.history.push('/login')
     }
 

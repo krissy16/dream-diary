@@ -32,16 +32,22 @@ class EntryForm extends React.Component{
                 this.setState({ edit: false })
                 this.props.toggleEdit()
             })
+            .then( () => {
+                this.props.history.push('/home')
+                window.location.reload();
+            })
             .catch(error => console.log(error))
         }
         //if creating a new post
         else {
             DreamApiService.postDream(data)
-                .then(console.log('Successfully added'))
+                .then( () => {
+                    console.log('Successfully added') 
+                    this.props.history.push('/home')
+                    window.location.reload();
+                })
                 .catch(error => console.log(error.message))
         }
-            this.props.history.push('/home')
-            window.location.reload();
     }
 
     //redirect if cancelling
