@@ -37,11 +37,12 @@ class Login extends React.Component{
             <div>
                 <LandingPage />
                 <div className="login-form">
+                    <Link to="/" className="x">X</Link>
                     <h2>Log In</h2>
                     <form onSubmit={this.authorize}>
                         <span className="input-group">
                             <label htmlFor="email"> Email: </label>
-                            <input id="email" type="email" name="email"/>
+                            <input id="email" type="email" name="email" />
                         </span>
                         <span className="input-group">
                             <label htmlFor="password">Password: </label>

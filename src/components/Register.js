@@ -46,6 +46,7 @@ class Register extends React.Component{
             <>
                 <LandingPage />
                 <div className="register-form" >
+                    <Link to="/" className="x">X</Link>
                     <h2>Register</h2>
                     <form onSubmit={this.register}>
                         <div role='alert'>

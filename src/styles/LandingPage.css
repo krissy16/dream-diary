@@ -12,6 +12,9 @@
   .book.title{
     padding-top: 50px;
   }
+  .instructions{
+    padding: 0 20px;
+  }
   .strap{
     background-color: rgb(119, 60, 18);
     position: absolute;
@@ -52,11 +55,16 @@
       text-align: center;
       background-color: saddlebrown;
     }
+    .credentials{
+      position: relative;
+      top: 90px;
+    }
     .strap{
-      height: 30px;
-      top: 50%;
+      height: 35px;
+      top: 45%;
     }
     .lock{
-      height: 30px;
+      height: 35px;
+      width: 35px;
     }
   }

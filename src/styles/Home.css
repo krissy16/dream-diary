@@ -6,6 +6,7 @@
     box-sizing: border-box;
     display: flex;
     margin: 20px auto;
+    background: #fff url(../images/book_bg.jpg) repeat-y center 0;
   }
   .left{
     border-right: 1px solid black;
@@ -109,6 +110,7 @@
     .open-book{
       width: 350px;
       height: 500px;
+      background: #fff
     }
     .page{
       width: 100%;

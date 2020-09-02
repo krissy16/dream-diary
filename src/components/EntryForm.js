@@ -23,7 +23,8 @@ class EntryForm extends React.Component{
             content: this.state.content,
             notes: this.state.notes
         }
-        
+        if(data.title === '' || data.content === '')
+            return
         //if we are editing existing post
         if(this.state.edit){
             DreamApiService.editDream(this.props.data.id, data)
