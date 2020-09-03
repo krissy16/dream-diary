@@ -124,9 +124,11 @@ class EntryForm extends React.Component{
                             onChange={this.handleChange}>
                         </textarea>
                     </span>
-                    <button type="submit">Submit</button>
-                    <button className="cancel" type="cancel"  onClick={ e => this.handleCancel(e) }>Cancel</button>
-                    {this.state.edit ? <button className="delete" type="delete"  onClick={ e => this.handleDelete(e) }>Delete</button> : ""}
+                    <span className="button-group">
+                        <button type="submit">Submit</button>
+                        <button className="cancel" type="cancel"  onClick={ e => this.handleCancel(e) }>Cancel</button>
+                        {this.state.edit ? <button className="delete" type="delete"  onClick={ e => this.handleDelete(e) }>Delete</button> : ""}
+                    </span>
                 </form>
             </div>
         )

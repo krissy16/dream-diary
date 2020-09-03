@@ -23,6 +23,10 @@
     display: block;
     padding: 0 50px 20px;
   }
+  .link{
+    position: relative;
+    top: 5px;
+  }
 
   @media screen and (max-width: 600px) {    
     .register-form{

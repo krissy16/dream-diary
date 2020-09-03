@@ -50,7 +50,7 @@ class Login extends React.Component{
                         </span>
                         <button type="submit">Log In</button>
                     </form>
-                    <Link to="/register">Don't have an account? Sign up!</Link>
+                    <Link to="/register" className="link">Don't have an account? Sign up!</Link>
                 </div>
             </div>
         )

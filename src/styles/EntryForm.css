@@ -10,7 +10,7 @@
 }
 .form-group > label{
   display: inline-block;
-  width: 20%;
+  min-width: 20%;
 }
 .form-group > input{
   display: inline-block;
@@ -25,4 +25,8 @@
 }
 #notes{
   height: 5em;
+}
+.button-group{
+  display: flex;
+  justify-content: center;
 }

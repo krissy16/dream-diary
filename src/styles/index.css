@@ -8,4 +8,16 @@ html {
 body{
   box-sizing: border-box;
   margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+button{
+  background: black; 
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 2px 5px;
+  margin: 2px 5px;
+}
+h1, h2, h3{
+  font-family: 'Gentium Book Basic', serif;
 }
