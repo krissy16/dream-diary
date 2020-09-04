@@ -1,44 +1,45 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import AuthApiService from '../services/auth-api-service'
-import LandingPage from './LandingPage'
-import '../styles/Register.css'
+import AuthApiService from '../services/auth-api-service';
+import LandingPage from './LandingPage';
+import '../styles/Register.css';
 
 class Register extends React.Component{    
-    state = { error: null }
+    state = { error: null };
 
     register = (e) =>{
-        e.preventDefault()
-        const { email, password, confirm } = e.target
+        e.preventDefault();
+        const { email, password, confirm } = e.target;
         
         if(password.value.trim() !== confirm.value.trim()){
-            this.setState({ error: "Password and Confirm Password does not match" })
-            return
+            this.setState({ error: "Password and Confirm Password does not match" });
+            return;
         }
         else if(!email || !password || !confirm){
-            this.setState({ error: "All fields are mandatory" })
-            return
+            this.setState({ error: "All fields are mandatory" });
+            return;
         }
 
-        this.setState({ error: null })
+        this.setState({ error: null });
+
         AuthApiService.postUser({
             email: email.value,
             password: password.value,
         })
         .then(user => {
-            email.value = ''
-            password.value = ''
-            confirm.value = ''
-            this.onRegistrationSuccess()
+            email.value = '';
+            password.value = '';
+            confirm.value = '';
+            this.onRegistrationSuccess();
         })
         .catch(res => {
-            this.setState({ error: res.error })
-        })
+            this.setState({ error: res.error });
+        });
     }
 
     onRegistrationSuccess = () => {
-        console.log('redirecting to login....')
-        this.props.history.push('/login')
+        console.log('redirecting to login....');
+        this.props.history.push('/login');
     }
 
     render(){
@@ -73,4 +74,4 @@ class Register extends React.Component{
     }
 }
 
-export default Register
+export default Register;

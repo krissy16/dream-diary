@@ -1,34 +1,34 @@
-import React from 'react'
-import Nav from './Nav'
-import '../styles/NewEntry.css'
-import EntryForm from './EntryForm'
-import DiaryEntry from './DiaryEntry'
-import DreamContext from '../DreamContext'
+import React from 'react';
+import Nav from './Nav';
+import '../styles/NewEntry.css';
+import EntryForm from './EntryForm';
+import DiaryEntry from './DiaryEntry';
+import DreamContext from '../DreamContext';
 
 class NewEntry extends React.Component{
     state = {
         foldBook: false
-    }
-    static contextType = DreamContext
+    };
+    static contextType = DreamContext;
 
     componentDidMount(){
         let width = window.innerWidth;
-        if (width < 700) {this.setState({ foldBook: true})}
-        window.addEventListener('resize', this.updateSize)
+        if (width < 700) {this.setState({ foldBook: true})};
+        window.addEventListener('resize', this.updateSize);
     }
 
     componentWillUnmount(){
-        window.removeEventListener('resize', this.updateSize)
+        window.removeEventListener('resize', this.updateSize);
     }
 
     updateSize = () => {
         let width = window.innerWidth;
-        if (width < 700) {this.setState({ foldBook: true})}
-        else {this.setState({ foldBook: false })}
+        if (width < 700) {this.setState({ foldBook: true});}
+        else {this.setState({ foldBook: false });}
     }
 
     render(){
-        let data = this.context.dreams[0]
+        let data = this.context.dreams[0];
         return(
             <>
                 <Nav />
@@ -43,8 +43,8 @@ class NewEntry extends React.Component{
                     </div>
                     </main>
             </>
-        )
+        );
     }
 }
 
-export default NewEntry
+export default NewEntry;

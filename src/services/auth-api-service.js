@@ -1,4 +1,4 @@
-import config from '../config'
+import config from '../config';
 
 const AuthApiService = {
   postLogin(credentials) {
@@ -14,7 +14,7 @@ const AuthApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   },
   postUser(user) {
          return fetch(`${config.API_ENDPOINT}/users`, {
@@ -29,8 +29,8 @@ const AuthApiService = {
              (!res.ok)
                ? res.json().then(e => Promise.reject(e))
                : res.json()
-           )
+           );
        },
 }
 
-export default AuthApiService
+export default AuthApiService;

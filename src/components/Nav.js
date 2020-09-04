@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import TokenService from '../services/token-service'
-import '../styles/Nav.css'
+import TokenService from '../services/token-service';
+import '../styles/Nav.css';
 
 function Nav(){
     function handleLogout(){
-        TokenService.clearAuthToken()
+        TokenService.clearAuthToken();
     }
     return(
         <div className="nav">
@@ -14,7 +14,7 @@ function Nav(){
                 <Link to="/" onClick={handleLogout}>Sign Out</Link>
             </div>
         </div>
-    )
+    );
 }
 
-export default Nav
+export default Nav;

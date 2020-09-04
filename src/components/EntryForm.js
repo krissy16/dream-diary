@@ -1,8 +1,8 @@
-import React from 'react'
-import DreamApiService from '../services/dreams-api-service'
-import DreamContext from '../DreamContext'
+import React from 'react';
+import DreamApiService from '../services/dreams-api-service';
+import DreamContext from '../DreamContext';
 
-import '../styles/EntryForm.css'
+import '../styles/EntryForm.css';
 
 class EntryForm extends React.Component{
     state={
@@ -11,9 +11,9 @@ class EntryForm extends React.Component{
         date_created: new Date().toISOString().substring(0, 10),
         content: '',
         notes: ''
-    }
+    };
 
-    static contextType = DreamContext
+    static contextType = DreamContext;
 
     handleSubmit = e =>{
         e.preventDefault();
@@ -22,32 +22,32 @@ class EntryForm extends React.Component{
             date_created: this.state.date_created,
             content: this.state.content,
             notes: this.state.notes
-        }
+        };
         if(data.title === '' || data.content === '')
-            return
+            return;
         //if we are editing existing post
         if(this.state.edit){
             DreamApiService.editDream(this.props.data.id, data)
             .then( () => {
-                this.context.changeDream(data)
-                this.setState({ edit: false })
-                this.props.toggleEdit()
+                this.context.changeDream(data);
+                this.setState({ edit: false });
+                this.props.toggleEdit();
             })
             .then( () => {
-                this.props.history.push('/home')
+                this.props.history.push('/home');
                 window.location.reload();
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
         }
         //if creating a new post
         else {
             DreamApiService.postDream(data)
                 .then( () => {
-                    console.log('Successfully added') 
-                    this.props.history.push('/home')
+                    console.log('Successfully added'); 
+                    this.props.history.push('/home');
                     window.location.reload();
                 })
-                .catch(error => console.log(error.message))
+                .catch(error => console.log(error.message));
         }
     }
 
@@ -55,11 +55,11 @@ class EntryForm extends React.Component{
     handleCancel = e =>{
         e.preventDefault();
         if(this.state.edit){
-            this.setState({ edit: false })
-            this.props.toggleEdit()
+            this.setState({ edit: false });
+            this.props.toggleEdit();
         }
         else 
-            this.props.history.push('/home')
+            this.props.history.push('/home');
     }
 
     //to delete existing dream
@@ -72,28 +72,28 @@ class EntryForm extends React.Component{
             content: this.props.content,
             notes: this.props.notes,
             archived: true
-        }
+        };
         DreamApiService.editDream(this.props.data.id, deletedDream)
             .then( () => {
-                this.context.changeDream(deletedDream)
-                this.setState({ edit: false })
-                this.props.toggleEdit()
-                this.props.history.push('/home')
+                this.context.changeDream(deletedDream);
+                this.setState({ edit: false });
+                this.props.toggleEdit();
+                this.props.history.push('/home');
                 window.location.reload();
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
     }
     handleChange = e => {
-        let newState = {}
+        let newState = {};
         newState[e.target.id] = e.target.value;
-        this.setState(newState)
+        this.setState(newState);
     }
     
     componentDidMount(){
         if(this.props.data){
-            this.setState({ edit: true})
-            this.setState(this.props.data)
-            this.setState({ date_created: this.props.data.date_created.substring(0, 10) })
+            this.setState({ edit: true});
+            this.setState(this.props.data);
+            this.setState({ date_created: this.props.data.date_created.substring(0, 10) });
         }
     }
     render(){
@@ -131,8 +131,8 @@ class EntryForm extends React.Component{
                     </span>
                 </form>
             </div>
-        )
+        );
     }
 }
 
-export default EntryForm
+export default EntryForm;

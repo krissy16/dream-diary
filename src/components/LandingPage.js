@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/LandingPage.css'
+import '../styles/LandingPage.css';
 
 function LandingPage(){
     return(
@@ -16,7 +16,7 @@ function LandingPage(){
             </Link>
           </div>
         </div>
-    )
+    );
 }
 
-export default LandingPage
+export default LandingPage;

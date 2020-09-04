@@ -1,5 +1,5 @@
-import config from '../config'
-import TokenService from './token-service'
+import config from '../config';
+import TokenService from './token-service';
 
 const DreamApiService = {
     getUserDreams(userId){
@@ -12,7 +12,7 @@ const DreamApiService = {
               (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
-            )
+            );
     },
     getDream(dreamId){
         return fetch(`${config.API_ENDPOINT}/dreams/${dreamId}`, {
@@ -24,7 +24,7 @@ const DreamApiService = {
               (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
-            )
+            );
     },
     postDream(dream){
         return fetch(`${config.API_ENDPOINT}/dreams`, {
@@ -39,7 +39,7 @@ const DreamApiService = {
               (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
-            )
+            );
     },
     editDream(dreamId, dream){
         return fetch(`${config.API_ENDPOINT}/dreams/${dreamId}`, {
@@ -55,8 +55,8 @@ const DreamApiService = {
               (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res
-            )})
+            )});
     },
 }
 
-export default DreamApiService
+export default DreamApiService;
