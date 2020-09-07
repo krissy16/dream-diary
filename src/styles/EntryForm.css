@@ -30,3 +30,8 @@
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 300px) {    
+  .entry-form-btn{
+    margin: 2px 0;
+  }
+}
