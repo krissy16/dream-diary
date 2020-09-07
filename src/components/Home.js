@@ -4,7 +4,7 @@ import DreamContext from '../DreamContext';
 import DreamApiService from '../services/dreams-api-service';
 import Nav from './Nav';
 import DiaryEntry from './DiaryEntry';
-
+import TokenService from '../services/token-service'
 import '../styles/Home.css';
 
 class Home extends React.Component{
@@ -67,6 +67,9 @@ class Home extends React.Component{
     }
 
     componentDidMount(){
+        if(!TokenService.hasAuthToken){
+            this.props.history.push('/')
+        }
         let width = window.innerWidth;
         if (width < 700) {this.setState({ foldBook: true});}
         window.addEventListener('resize', this.updateSize);

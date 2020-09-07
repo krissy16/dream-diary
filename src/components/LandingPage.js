@@ -13,6 +13,7 @@ function LandingPage(){
           <div className="strap">
             <Link className="lock" to="/login">
               <div className="circle"></div><div className="rectangle"></div>
+              <p className="access">Lock</p>
             </Link>
           </div>
         </div>
