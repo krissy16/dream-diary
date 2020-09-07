@@ -8,7 +8,9 @@
     text-align: center;
     margin: 50px auto;
     background-color: saddlebrown;
+    color: whitesmoke;
   }
+  
   .book.title{
     padding-top: 50px;
   }
@@ -46,6 +48,9 @@
     background-color: black;
     position: relative;
     top: -5px;
+  }
+  .access{
+    display: none;
   }
 
   @media screen and (max-width: 600px) {    

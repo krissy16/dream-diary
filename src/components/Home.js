@@ -4,7 +4,6 @@ import DreamContext from '../DreamContext';
 import DreamApiService from '../services/dreams-api-service';
 import Nav from './Nav';
 import DiaryEntry from './DiaryEntry';
-
 import '../styles/Home.css';
 
 class Home extends React.Component{
@@ -99,19 +98,22 @@ class Home extends React.Component{
 
         return(
             <>
-                <Nav />
-                <div className="open-book">
-                    {this.state.showLeft ? <img className="left-arrow arrow" id="left" src="./images/left-arrow.svg" alt="left arrow" onClick={() => this.flipPage('left')}/> : ""}
-                    {this.state.foldBook ? "" :
-                        <div className="left page">
-                            <DiaryEntry data={leftPageData} {...this.props}/>
-                        </div>}
-                    <div className="right page">
-                        <DiaryEntry data={rightPageData} {...this.props}/>
+            <Nav />
+                <div className="home-page-main">
+                    <div className="open-book">                    {this.state.showLeft ? <img className="left-arrow arrow" id="left" src="./images/left-arrow.svg" alt="left arrow" onClick={() => this.flipPage('left')}/> : ""}
+
+                        {this.state.foldBook ? "" :
+                            <div className="left page">
+                                <DiaryEntry data={leftPageData} {...this.props}/>
+                            </div>}
+                        <div className="right page">
+                            <DiaryEntry data={rightPageData} {...this.props}/>
+                        </div>  
+                                          {this.state.showRight ? <img className="right-arrow arrow" id="right" src="./images/right-arrow.svg" alt="right arrow" onClick={() => this.flipPage('right')}></img> : ""}
+
                     </div>
-                    {this.state.showRight ? <img className="right-arrow arrow" id="right" src="./images/right-arrow.svg" alt="right arrow" onClick={() => this.flipPage('right')}></img> : ""}
-                </div>
-                <Link className="pen-box" to="/new-entry"><img className="pen" src="./images/pen.png" alt="pen"/> </Link>
+                    <Link className="pen-box" to="/new-entry"><img className="pen" src="./images/pen.png" alt="pen"/> </Link>
+                </div>            
             </>
         );
     }
